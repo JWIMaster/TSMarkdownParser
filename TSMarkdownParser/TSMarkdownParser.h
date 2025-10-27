@@ -75,7 +75,7 @@ typedef void (^TSMarkdownParserLinkFormattingBlock)(NSMutableAttributedString *a
 - (void)addEscapingParsing;
 
 /* 2. examples regular block parsing: headers, lists and quotes */
-
+- (void)setDefaultFontSize:(NSUInteger)defaultFontSize;
 /// accepts "# text", "## text", ...
 - (void)addHeaderParsingWithMaxLevel:(unsigned int)maxLevel leadFormattingBlock:(TSMarkdownParserLevelFormattingBlock)leadFormattingBlock textFormattingBlock:(nullable TSMarkdownParserLevelFormattingBlock)formattingBlock;
 /// accepts "* text", "+ text", "- text", "** text", "++ text", "-- text", ...
