@@ -512,4 +512,31 @@ static NSString *const TSMarkdownEmRegex            = @"(\\*|_)(.+?)(\\1)";
     }];
 }
 
+- (void)setDefaultFontSize:(NSUInteger)defaultFontSize {
+    _defaultFontSize = defaultFontSize;
+    
+    self.defaultAttributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:defaultFontSize] };
+    
+#if TARGET_OS_IPHONE
+    self.emphasisAttributes = @{ NSFontAttributeName: [UIFont italicSystemFontOfSize:defaultFontSize] };
+#else
+    self.emphasisAttributes = @{ NSFontAttributeName: [[NSFontManager sharedFontManager] convertFont:[UIFont systemFontOfSize:defaultFontSize] toHaveTrait:NSItalicFontMask] };
+#endif
+    
+    self.strongAttributes = @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize] };
+    self.monospaceAttributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Courier New" size:defaultFontSize] ?: [UIFont fontWithName:@"Courier" size:defaultFontSize] ?: [UIFont systemFontOfSize:defaultFontSize],
+                                  NSForegroundColorAttributeName: [UIColor colorWithSRGBRed:0.95 green:0.54 blue:0.55 alpha:1] };
+    
+    self.quoteAttributes = @[@{ NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Italic" size:defaultFontSize] ?: self.emphasisAttributes[NSFontAttributeName] }];
+    
+    // Optionally update headers as well
+    self.headerAttributes = @[ @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize + 6] },
+                               @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize + 4] },
+                               @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize + 2] },
+                               @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize] },
+                               @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize - 2] },
+                               @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize - 4] } ];
+}
+
+
 @end
