@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "TSMarkdownParser",
     platforms: [
-        .iOS(.v9),
+        .iOS("7.0"),
         .macOS(.v10_10),
         .tvOS(.v9)
     ],
