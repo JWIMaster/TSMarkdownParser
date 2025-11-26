@@ -68,9 +68,9 @@ typedef NSFont UIFont;
     _quoteAttributes = @[@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Italic" size:defaultSize] ?: [_emphasisAttributes objectForKey:NSFontAttributeName]}];
     
     _imageAttributes = @{};
-    UIColor *pastelBlue = [UIColor colorWithRed:150.0/255.0
-                                          green:200.0/255.0
-                                           blue:255.0/255.0
+    UIColor *pastelBlue = [UIColor colorWithRed:48.0/255.0
+                                          green:121.0/255.0
+                                           blue:240.0/255.0
                                           alpha:1.0];
     
     _linkAttributes = @{ NSForegroundColorAttributeName: pastelBlue,
