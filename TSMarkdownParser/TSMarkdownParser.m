@@ -68,12 +68,12 @@ typedef NSFont UIFont;
     _quoteAttributes = @[@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Italic" size:defaultSize] ?: [_emphasisAttributes objectForKey:NSFontAttributeName]}];
     
     _imageAttributes = @{};
-    UIColor *linkBlue = [UIColor colorWithRed:0.0/255.0
-                                    green:122.0/255.0
-                                     blue:255.0/255.0
-                                    alpha:1.0];
-
-    _linkAttributes = @{ NSForegroundColorAttributeName: linkBlue,
+    UIColor *pastelBlue = [UIColor colorWithRed:150.0/255.0
+                                          green:200.0/255.0
+                                           blue:255.0/255.0
+                                          alpha:1.0];
+    
+    _linkAttributes = @{ NSForegroundColorAttributeName: pastelBlue,
                          NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle) };
     
     // Courier New and Courier are the only monospace fonts compatible with watchOS 2
