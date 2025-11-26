@@ -534,6 +534,16 @@ static NSString *const TSMarkdownEmRegex            = @"(\\*|_)(.+?)(\\1)";
     
     self.quoteAttributes = @[@{ NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Italic" size:defaultFontSize] ?: self.emphasisAttributes[NSFontAttributeName] }];
     
+    UIColor *pastelBlue = [UIColor colorWithRed:48.0/255.0
+                                          green:121.0/255.0
+                                           blue:240.0/255.0
+                                          alpha:1.0];
+    
+    self.linkAttributes = @{ NSForegroundColorAttributeName: pastelBlue,
+                         NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
+                         NSFontAttributeName: [UIFont systemFontOfSize:defaultFontSize] };
+
+    
     // Optionally update headers as well
     self.headerAttributes = @[ @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize + 6] },
                                @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:defaultFontSize + 4] },
